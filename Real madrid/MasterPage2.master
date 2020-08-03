@@ -1,0 +1,187 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ht<title></title>
+    
+</head>
+    <head>
+    <style type="text/css">
+        /*side menubar*/
+        #button {
+	width: 12em;
+	border-right: 1px solid #000;
+	padding: 0 0 1em 0;
+	margin-bottom: 1em;
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
+	background-color: #90bade;
+	color: #333;
+            height: 852px;
+        }
+
+#button ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+	
+#button li {
+	border-bottom: 1px solid #90bade;
+	margin: 0;
+	list-style: none;
+	list-style-image: none;
+}
+	
+#button li a {
+	display: block;
+	padding: 20px 20px 20px 0.5em;
+	border-left: 10px solid #1958b7;
+	border-right: 10px solid #508fc4;
+	background-color: #2175bc;
+	color: #fff;
+	text-decoration: none;
+	width: 100%;
+}
+
+html>body #button li a {
+	width: auto;
+}
+
+#button li a:hover {
+	border-left: 10px solid #1c64d1;
+	border-right: 10px solid #5ba3e0;
+	background-color: #2586d7;
+	color: #fff;
+}
+        /*image slide*/
+          * {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+
+
+.slideshow-container {
+  max-width: 1350px;
+  position: relative;
+  margin: auto;
+            height: 1099px;
+        }
+
+
+.text {
+  color: #f2f2f2;
+  font-size: 40px;
+  font-family:'Buxton Sketch';
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="body">
+        
+
+
+              
+            
+         
+                    <div align="center">
+                        
+        <br />
+       
+        <tr>
+                    <td colspan="3" style="height: 76px">
+
+                                  <img alt="" src="the_official_read_madrid_shop_tax_free.jpg" style="height: 313px; width: 1561px" />&nbsp;<div align="center" style="text-align: center; height: 106px; margin-top: 0px;">
+
+                            <table style="width: 1216px; position: static; height: 100px" align="center">
+            
+            <tr>
+                <td colspan="3" style="height: 33px">
+                    <asp:Menu ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2"
+                        Font-Bold="True" Font-Names="Imprint MT Shadow" Font-Size="12pt" ForeColor="#284E98"
+                        Height="67px" Orientation="Horizontal" StaticSubMenuIndent="10px" Style="position: static"
+                        Width="1555px" >
+                        <StaticMenuItemStyle HorizontalPadding="20px" VerticalPadding="2px" />
+                        <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                        <DynamicMenuStyle BackColor="#B5C7DE" />
+                        <StaticSelectedStyle BackColor="#507CD1" />
+                        <DynamicSelectedStyle BackColor="#507CD1" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/UserInBox/CustomerProfile.aspx" Text="Profile" Value="New Item"></asp:MenuItem>
+                            <asp:MenuItem Text="ProductGallery" Value="New Item" NavigateUrl="~/UserInBox/ProductGallery.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserInBox/AddtoCart.aspx" Text="CartItems" Value="CartItems">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserInBox/SoldProducts.aspx" Text="MySoldProducts" Value="MySoldProducts">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Home.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                    </asp:Menu>
+                </td>
+            </tr>
+                    </table>
+    </div>
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

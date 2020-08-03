@@ -1,0 +1,347 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Copy of FanAdminMaster.master.cs" Inherits="Admin_FanAdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title> <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder></title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <style>  
+
+      /* main menu styles */
+#nav {
+    display:inline-block;
+    width:128%;
+    margin:97px auto 0px auto;
+    padding:0;
+    background:white url(../images/bg.png) repeat-x 0 -110px;
+
+    border-radius:10px; /*some css3*/
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    box-shadow:0 2px 2px rgba(0,0,0, .5);
+    -moz-box-shadow:0 2px 2px rgba(0,0,0, .5);
+    -webkit-box-shadow:0 2px 2px rgba(0,0,0, .5);
+    
+}
+#nav li {
+    margin:10px;
+    float:left;
+    position:relative;
+    list-style:none;
+}
+#nav a {
+    font-weight:bold;
+    color:blue;
+    text-decoration:none;
+    display:block;
+    padding:8px 20px;
+
+    border-radius:10px; /*some css3*/
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    text-shadow:0 2px 2px rgba(0,0,0, .7);
+}
+
+/* selected menu element */
+#nav .current a, #nav li:hover > a {
+    background:#7788aa url(../images/bg.png) repeat-x 0 -20px;
+    color:#000;
+    border-top:1px solid #f8f8f8;
+
+    box-shadow:0 2px 2px rgba(0,0,0, .7); /*some css3*/
+    -moz-box-shadow:0 2px 2px rgba(0,0,0, .7);
+    -webkit-box-shadow:0 2px 2px rgba(0,0,0, .7);
+    text-shadow:0 2px 2px rgba(255,255,255, 0.7);
+}
+
+/* sublevels */
+#nav ul li:hover a, #nav li:hover li a {
+    background:none;
+    border:none;
+    color:#000;
+}
+#nav ul li a:hover {
+    background:#335599 url(../images/bg.png) repeat-x 0 -100px;
+    color:#fff;
+
+    border-radius:10px; /*some css3*/
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    text-shadow:0 2px 2px rgba(0,0,0, 0.7);
+}
+
+#nav ul li:first-child > a {
+    -moz-border-radius-topleft:10px; /*some css3*/
+    -moz-border-radius-topright:10px;
+    -webkit-border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+}
+#nav ul li:last-child > a {
+    -moz-border-radius-bottomleft:10px; /*some css3*/
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-bottom-left-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+}
+
+/* drop down */
+#nav li:hover > ul {
+    opacity:1;
+    visibility:visible;
+}
+#nav ul {
+    opacity:0;
+    visibility:hidden;
+    padding:0;
+    width:175px;
+    position:absolute;
+    background:#aabbcc url(../images/bg.png) repeat-x 0 0;
+    border:1px solid #7788aa;
+
+    border-radius:10px; /*some css3*/
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    box-shadow:0 2px 2px rgba(0,0,0, .5);
+    -moz-box-shadow:0 2px 2px rgba(0,0,0, .5);
+    -webkit-box-shadow:0 2px 2px rgba(0,0,0, .5);
+
+    -moz-transition:opacity .25s linear, visibility .1s linear .1s;
+    -webkit-transition:opacity .25s linear, visibility .1s linear .1s;
+    -o-transition:opacity .25s linear, visibility .1s linear .1s;
+    transition:opacity .25s linear, visibility .1s linear .1s;
+}
+#nav ul li {
+    float:none;
+    margin:0;
+}
+#nav ul a {
+    font-weight:normal;
+    text-shadow:0 2px 2px rgba(255,255,255, 0.7);
+}
+#nav ul ul {
+    left:160px;
+    top:0px;
+}
+      .example {
+          margin-top: 0px;
+          
+          
+      }
+      .stick {
+          top:0px;
+         
+          position:fixed;
+          
+      }
+      .as1 {
+          width: 100%;
+          height: 500px;
+          border-style: solid;
+          border-width: 2px;
+      }
+      .as2 {
+          width: 40%;
+          height: 106px;
+      }
+      .as3 {
+          height: 8px;
+      }
+      .as4 {
+          height: 110px;
+      }
+      .as5 {
+          height: 8px;
+          width: 180px;
+      }
+      .as6 {
+          width: 75%;
+          height: 128px;
+      }
+      .as7 {
+          height: 158px;
+      }
+      .as8 {
+          width: 100%;
+          height: 134px;
+      }
+      .as9 {
+          width: 24%;
+          height: 100px;
+      }
+      .ass10 {
+          width: 100%;
+          height: 109px;
+      }
+ </style>
+</head>
+  
+<body>
+   <script type="text/javascript">
+       $(document).ready(function () {
+           var s = $("#sticker");
+           var pos = s.position();
+           $(window).scroll(function () {
+               var windowpos = $(window).scrollTop();
+
+               if (windowpos >= pos.top) {
+                   s.addClass("stick");
+               } else {
+                   s.removeClass("stick");
+               }
+           });
+       });
+</script>
+   
+    <form id="form1" runat="server">
+         <div>   <header style="position:absolute; width: 1350px; height: 100px; background-image: url('/real.jpg');"></header></div>
+        <div id="sticker" class="example" >
+    <ul id="nav">
+        <li class="current"><a href="http://www.script-tutorials.com/">Welcome</a></li>
+        <li><a href="AddMembetType.aspx">Add Member Type</a>
+            
+        </li>
+        <li><a href="#">ABOUT</a>
+            <ul>
+                <li><a href="#">History</a>
+                    
+                </li>
+                <li><a href="#">Honors</a>
+                    
+                </li>
+                <li><a href="#">Stadium</a>
+                   <ul>
+                        <li><a href="#">xyz</a></li>
+                        <li><a href="#">abc</a></li>
+                    </ul>
+                    
+                </li>
+                    
+                </li>
+            </ul>
+        </li>
+        <li><a href="http://www.script-tutorials.com/about/">2015-16 SEASON</a>
+       <ul>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Result</a></li>
+      <li><a href="#">>Match Rating</a></li>
+       <li><a href="#">Season Review</a></li>   
+</ul>
+</li>
+        <li><a href="http://www.script-tutorials.com/creating-css3-dropdown-menu/">REVENUE</a>
+
+<ul>
+      <li><a href="#">Tickets</a></li>
+      <li><a href="#">Transfers</a></li>
+      <li><a href="#">Sponsers</a></li>
+       <li><a href="#">Total Revenue</a></li>   
+</ul>
+       </li>
+         <li><a href="http://www.script-tutorials.com/creating-css3-dropdown-menu/">ONLINE SHOPPING</a></li>
+         <li><a href="http://www.script-tutorials.com/creating-css3-dropdown-menu/">REGISTRATION</a></li>
+    </ul>
+</div>
+        <div id="space" style="width: 1350px; height: 95px"></div>
+        <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <div id="footertable" class="footertable" style="width: 1400px; height: 550px; background-color:#999999;">
+            <table cellspacing="4" class="as1">
+                <tr>
+                    <td class="as4">
+                        <table align="center" class="as2">
+                            <tr>
+                                <td class="as5">
+                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/sponsers images/Satellite.png" Width="120px" />
+                                </td>
+                                <td class="as3">
+                                    <asp:Image ID="Image2" runat="server" ImageUrl="~/sponsers images/Satellite (2).png" />
+                                </td>
+                                <td class="as3">
+                                    <asp:Image ID="Image3" runat="server" ImageUrl="~/sponsers images/Satellite (1).png" Width="120px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="as7">
+                        <table class="as6" align="center">
+                            <tr>
+                                <td>
+                                    <asp:Image ID="Image4" runat="server" ImageUrl="~/sponsers images/hankook_bn.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image5" runat="server" ImageUrl="~/sponsers images/mahou.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image6" runat="server" ImageUrl="~/sponsers images/audi.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image7" runat="server" ImageUrl="~/sponsers images/microsoft.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image8" runat="server" ImageUrl="~/sponsers images/BOSS_Black_b_w.png" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="ass10" align="center">
+                            <tr>
+                                <td>
+                                    <asp:Image ID="Image29" runat="server" ImageUrl="~/sponsers images/coco.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image30" runat="server" ImageUrl="~/sponsers images/hankook_bn.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image31" runat="server" ImageUrl="~/sponsers images/sanitas.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image32" runat="server" ImageUrl="~/sponsers images/stc.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image33" runat="server" ImageUrl="~/sponsers images/hankook_bn.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image34" runat="server" ImageUrl="~/sponsers images/solan.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image35" runat="server" ImageUrl="~/sponsers images/nbad.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image36" runat="server" ImageUrl="~/sponsers images/orredoo.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image37" runat="server" ImageUrl="~/sponsers images/tecate.png" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="as4">
+                        <table align="center" class="as9">
+                            <tr>
+                                <td>
+                                    <asp:Image ID="Image18" runat="server" ImageUrl="~/sponsers images/fud.png" />
+                                </td>
+                                <td>
+                                    <asp:Image ID="Image19" runat="server" ImageUrl="~/sponsers images/tecate.png" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+         </div>
+    </form>
+</body>
+</html>
